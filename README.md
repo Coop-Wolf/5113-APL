@@ -6,3 +6,9 @@
 
 #### Avatar:
 <img src="https://github.com/Coop-Wolf/3013-Algorithms/assets/156962773/0855cd2e-77a3-4955-beb7-963533f5e635" width="75">
+
+## Online Interpreter:
+https://swish.swi-prolog.org/
+
+## Online Source:
+https://lpn.swi-prolog.org/lpnpage.php?pageid=top

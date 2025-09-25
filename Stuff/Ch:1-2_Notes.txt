@@ -1,6 +1,6 @@
 Using Swish for online interpreter
 Good sources:
-    learn prolog now.com
+    learn prolog now.com link 
         book and slides
 
 , - and
