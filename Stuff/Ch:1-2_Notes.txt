@@ -36,3 +36,8 @@ Terms:
     Complex terms - arguments, functor (Ex: playsAirGuitar(jody) loves(vincent, mia))
     Airty - Number of arguments a term has. (Ex: )
         Supports polymorphism - can have two predicates with same functor but differnt arity.
+    Unification - instantiating woman(mia) with woman(X)
+                - two terms unify if they are the same term or they contain variables that can be uniformily instantiated.
+                - woman(mia) and woman(X) unify
+    Instantiations - 
+    
