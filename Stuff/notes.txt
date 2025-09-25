@@ -1,0 +1,5 @@
+Using Swish for online interpreter
+
+, - and
+; - or
+. - the end of a file
