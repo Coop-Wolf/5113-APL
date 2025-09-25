@@ -1,5 +1,38 @@
 Using Swish for online interpreter
+Good sources:
+    learn prolog now.com
+        book and slides
 
 , - and
 ; - or
 . - the end of a file
+
+variables must be capital
+literals must be lowercase
+    they can be in quotes and make capital
+
+
+Example:
+
+    code:
+        woman(mia).
+        woman(jody).
+
+        loves(vincent, mia).
+        loves(mike, mia).
+
+    terminal:
+        woman(jody).
+        yes
+
+        loves(vincent, mia).
+        yes
+
+Terms:
+    Atoms - sequence of characters (string)
+    Numbers
+    Floats
+    Variables - must start with uppercase (Ex: X, Y, Num)
+    Complex terms - arguments, functor (Ex: playsAirGuitar(jody) loves(vincent, mia))
+    Airty - Number of arguments a term has. (Ex: )
+        Supports polymorphism - can have two predicates with same functor but differnt arity.
