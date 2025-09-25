@@ -1,0 +1,27 @@
+man(cooper).
+man(ashton).
+man(tom).
+woman(kenzi).
+woman(payton).
+woman(amy).
+
+married(amy, tom).
+married(tom, amy).
+married(ashton, payton).
+married(payton, ashton).
+
+loves(cooper, kenzi).
+loves(jesus, cooper).
+loves(jesus, ashton).
+loves(jesus, payton).
+loves(jesus, amy).
+loves(jesus, tom).
+
+playboysports(X) :- man(X).
+playgirlsports(Y) :- woman(Y).
+
+playsportstogether(X,Y) :- woman(X) , woman(Y).
+playsportstogether(X,Y) :- man(X) , man(Y).
+
+livingtogether(X,Y) :- married(X,Y).
+family(X,Y) :- married(X,Y).
