@@ -27,10 +27,10 @@ class frac
     }
     
     // Copy constructor
-    frac(frac f)
+    frac(const frac& f)
     {
-        this->n = f.getn();
-        this->d = f.getd();
+        this->num = f.getn();
+        this->den = f.getd();
     }
     
     // Setters
@@ -41,10 +41,10 @@ class frac
     {den = d;}
     
     // Getters
-    int getn()
+    int getn() const
     {return num;}
     
-    int getd()
+    int getd() const
     {return den;}
     
     frac getFrac(frac temp)

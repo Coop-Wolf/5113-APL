@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 		Cooper Wolf
+% 		CMPS 5113 APL
+% 		10/7/25
+%
+% 	This program represents my unique family.
+% 	2 extra relationships: pet, grandchild.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		      Facts   			                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% males
+male(tom).
+male(hunter).
+male(cooper).
+male(ty).
+male(dale).
+male(billy).
+
+% females
+female(rylee).
+female(amy).
+female(ann).
+female(debbie).
+
+% parents (parent, child)
+parent(amy, hunter).
+parent(amy, cooper).
+parent(amy, rylee).
+parent(amy, ty).
+parent(tom, hunter).
+parent(tom, cooper).
+parent(tom, rylee).
+parent(tom, ty).
+parent(dale, tom).
+parent(debbie, amy).
+parent(billy, amy).
+parent(ann, tom).
+
+% pets, kinda
+pet(dog, cooper).
+pet(cow, cooper).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			Rules		                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% siblings
+% '\=' means "these two terms are not equal" returns bool | Got from ChatGPT
+%
+% 'once()' means to get a true only once. This is needed because previously
+% it was looking at both parents and returning true twice | Got from ChatGPT
+
+brother(A,B) :- male(A), male(B), once((parent(C,A), parent(C,B))), A \= B.
+sister(A,B) :- male(A), female(B), once((parent(C,A), parent(C,B))), A \= B.
+
+% children (child, parent)
+child(A,B) :- parent(B,A).
+
+% grandparent (grandparent, grandchild)
+grandparent(A,B) :- parent(A,C), parent(C,B).
+
+% grandchild (grandchild, grandparent)
+grandchild(A,B) :- grandparent(B,A).
