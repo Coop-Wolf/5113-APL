@@ -25,20 +25,19 @@ class frac
         num =n;
         den = d;
     }
-    
-    // Copy constructor
-    frac(const frac& f)
-    {
-        this->num = f.getn();
-        this->den = f.getd();
-    }
-    
+
     // Setters
     void setn(int n)
     {num = n;}
     
     void setd(int d)
     {den = d;}
+
+    void setFrac(int n, int d)
+    {
+        num = n;
+        den = d;
+    }
     
     // Getters
     int getn() const
@@ -46,15 +45,27 @@ class frac
     
     int getd() const
     {return den;}
-    
-    frac getFrac(frac temp)
+
+    void printfrac()
+    {cout << num << "/" << den;}
+
+    frac operator* (frac f)
     {
-        temp.setn(this->num);
-        temp.setd(this->den);
-        
+        frac temp;
+        temp.num = this->getn() * f.getn();
+        temp.den = this->getd() * f.getd();
+
         return temp;
     }
-    
+
+    frac operator/ (frac f)
+    {
+        frac temp;
+        temp.num = this->getn() * f.getd();
+        temp.den = this->getd() * f.getn();
+
+        return temp;   
+    }
     
 };
 
@@ -65,10 +76,35 @@ int main()
     frac f2;
     f2.setd(10);
     f2.setn(5);
-    frac f3 = f2.getFrac(f2);
-    
-    cout << "Num: " << f3.getn() << endl;
-    cout << "Den: " << f2.getd();
+    frac f3 = f2;
+    frac f10(f);
 
+    f10.printfrac();
+
+    cout << "Going to multiply ";
+    f.printfrac();
+    cout << " ";
+    f2.printfrac();
+
+    frac f4;
+    cout << endl;
+    f4 = f * f2;
+    f4.printfrac();
+
+    cout << endl << endl << endl;
+
+    cout << "Goung to divide ";
+    frac f7(1,2);
+    frac f8(5,2);
+    f7.printfrac();
+    cout << " ";
+    f8.printfrac();
+
+    frac f9 = f7 / f8;
+    cout << endl;
+    f9.printfrac();
+
+
+    cout << endl << endl;
     return 0;
 }
