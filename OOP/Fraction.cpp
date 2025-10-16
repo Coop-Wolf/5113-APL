@@ -10,6 +10,23 @@ class frac
     int num;
     int den;
     
+    int gcd(int a ,int b)
+    {
+        if (a % b == 0)
+            return b;
+            
+        else
+            return (gcd(b,a %b));
+    }
+    
+    bool iswhole()
+    {
+        if (den == 1)
+            return true;
+        else 
+            return false;
+    }
+    
     // Default constructor
     public:
     
@@ -47,7 +64,15 @@ class frac
     {return den;}
 
     void printfrac()
-    {cout << num << "/" << den;}
+    {
+        if (this->iswhole())
+        {
+            cout << num;
+        }
+        else
+        cout << num << "/" << den;
+        
+    }
 
     frac operator* (frac f)
     {
@@ -72,7 +97,19 @@ class frac
         frac temp;
         temp.num = num * f.getd() + den * f.getn();
         temp.den = den * f.getd();
+        
+        temp.reduce();
+        
         return temp;
+    }
+    
+    void reduce ()
+    {
+        int g = gcd(num, den);
+        den = den/g;
+        num = num/g;
+        
+        
     }
     
 };
@@ -89,9 +126,9 @@ int main()
 
     f10.printfrac();
 
-    cout << "Going to multiply ";
+    cout << endl << "Going to multiply ";
     f.printfrac();
-    cout << " ";
+    cout << " * ";
     f2.printfrac();
 
     frac f4;
@@ -99,29 +136,28 @@ int main()
     f4 = f * f2;
     f4.printfrac();
 
-    cout << endl << endl << endl;
+    cout << endl << endl;
 
     cout << "Going to divide ";
     frac f7(1,2);
     frac f8(5,2);
     f7.printfrac();
-    cout << " ";
+    cout << " / ";
     f8.printfrac();
 
     frac f9 = f7 / f8;
     cout << endl;
     f9.printfrac();
 
-    cout << "Going to add ";
-    frac f7(1,2);
-    frac f8(5,2);
+    cout << endl << endl << "Going to add ";
+    frac f13(1,2);
+    frac f14(5,2);
     f7.printfrac();
-    cout << " ";
+    cout << " + ";
     f8.printfrac();
 
-    cout << endl << endl;
 
-    frac f34 = f7 + f8;
+    frac f34 = f13 + f14;
     cout << endl;
     f34.printfrac();
 
